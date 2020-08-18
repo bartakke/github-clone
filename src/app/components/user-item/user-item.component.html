@@ -1,0 +1,14 @@
+<div class="card" >
+  <div class="title mb-2">
+    <div class="img-responsive"  *ngIf="user.avatar_url != undefined">
+      <img [src]="user.avatar_url" style="width: 100%;" class="img-responsive round-img">
+    </div>
+
+    <a href="#" target="_blank" title="{{user.login}}"  *ngIf="user.avatar_url != undefined">
+      {{ user.login | slice:0:60 }}
+    </a>
+  </div>
+  <a class=" btn c-button" (click)='gotoUserDetails()' >
+    More Info
+  </a>
+</div>

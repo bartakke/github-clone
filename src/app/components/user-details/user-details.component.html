@@ -1,0 +1,34 @@
+<div class="container mb-4">
+  <div class="row">
+    <div class="col-3">
+      <div class="card title mb-2">
+          <div class="img-responsive" *ngIf="selectedUser.avatar_url">
+            <img [src]="selectedUser.avatar_url" style="width: 100%;" class="img-responsive round-img">
+          </div>
+          <h3  >
+            {{selectedUser.login}}
+          </h3>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h4>Followers ({{followersList.length}})</h4>
+  <app-loader *ngIf="showLoader "></app-loader>
+  <div class=" pt-4">
+    <div class="row"  >
+      <div class="col-3 col-sm-3 col-md-3 text-center pb-4" *ngFor="let user of followersList">
+        <div class="card" >
+          <div class="title mb-2">
+            <div class="img-responsive">
+              <img [src]="user.avatar_url" style="width: 100%;" class="img-responsive round-img">
+            </div>
+
+            <a href="#" target="_blank" title="{{user.login}}"  *ngIf="user.avatar_url != undefined">
+              {{ user.login | slice:0:60 }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
